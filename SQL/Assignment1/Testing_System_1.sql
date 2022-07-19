@@ -1,21 +1,21 @@
-create DATABASE Testing_System_Assignment_1;
+CREATE DATABASE Testing_System_Assignment_1;
 
 USE Testing_System_Assignment_1;
 
 -- Table1
-create TABLE Department(
+CREATE TABLE Department(
 	DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
     DepartmentName VARCHAR(50)
 );
 
 -- Table2
-create TABLE Position (
+CREATE TABLE Position (
 	PositionID INT PRIMARY KEY AUTO_INCREMENT,
     PositionName ENUM('Dev','Test','Scrum Master','PM')
 );
 
 -- Table3
-create TABLE Account (
+CREATE TABLE Account (
 	AccountID INT PRIMARY KEY AUTO_INCREMENT,
     Email VARCHAR(50),
     Username VARCHAR(50),
@@ -26,7 +26,7 @@ create TABLE Account (
 );
 
 -- Table4
-create TABLE `Group` (
+CREATE TABLE `Group` (
 	GroupID INT PRIMARY KEY AUTO_INCREMENT,
     GroupName varchar(50),
     CreatorID INT,
@@ -34,26 +34,26 @@ create TABLE `Group` (
 );
 
 -- Table5
-create TABLE GroupAccount (
+CREATE TABLE GroupAccount (
 	GroupID INT,
     AccountID INT,
     JoinDate DATE
 );
 
 -- Table6
-create TABLE TypeQuestion (
+CREATE TABLE TypeQuestion (
 	TypeID INT PRIMARY KEY AUTO_INCREMENT,
     TypeName ENUM('Essay','Multiple-Choice')
 );
 
 -- Table7
-create TABLE CategoryQuestion (
+CREATE TABLE CategoryQuestion (
 	CategoryID INT PRIMARY KEY AUTO_INCREMENT,
     CategoryName VARCHAR(50)
 );
 
 -- Table8
-create TABLE Question (
+CREATE TABLE Question (
 	QuestionID INT PRIMARY KEY AUTO_INCREMENT,
     Content VARCHAR(50),
     CategoryID INT,
@@ -63,7 +63,7 @@ create TABLE Question (
 );
 
 -- Table9
-create TABLE Answer (
+CREATE TABLE Answer (
 	AnswerID INT PRIMARY KEY AUTO_INCREMENT,
     Content VARCHAR(50),
     QuestionID INT,
@@ -71,7 +71,7 @@ create TABLE Answer (
 );
 
 -- Table10
-create TABLE Exam (
+CREATE TABLE Exam (
 	ExamID INT PRIMARY KEY AUTO_INCREMENT,
     Code INT,
     Title VARCHAR(50),
@@ -82,7 +82,7 @@ create TABLE Exam (
 );
 
 -- Table11
-create TABLE ExamQuestion (
+CREATE TABLE ExamQuestion (
 	ExamID INT,
     QuestionID INT
 );
