@@ -30,6 +30,6 @@ CREATE TABLE DataTypes2(
 	ID MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(200),
     BirthDate DATE,
-    Gender INT,
+    Gender TINYINT CHECK(Gender >= 0 AND Gender <= 1),
     IsDeletedFlag BOOLEAN
 );
