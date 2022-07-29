@@ -25,4 +25,4 @@ ET_IQ + ET_Gmath >= 20;
 -- Question5
 DELETE FROM Trainee WHERE TraineeID = 3;
 -- Question6
-UPDATE Trainee set Training_Class = 2 WHERE TraineeID = 5;
+UPDATE Trainee set Training_Class = (select Training_Class WHERE TraineeID = 4) WHERE TraineeID = 5;

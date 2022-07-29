@@ -11,11 +11,11 @@ CREATE TABLE Department(
 );
 
 INSERT INTO Department(DepartmentID,DepartmentName)
-VALUES  ('1',N'Phòng Dev'),
-		('2',N'Phòng Sale'),
-        ('3',N'Phòng Support'),
-        ('4',N'Phòng Marketing'),
-        ('5',N'Phòng Maintenance');
+VALUES  (1,N'Phòng Dev'),
+		(2,N'Phòng Sale'),
+        (3,N'Phòng Support'),
+        (4,N'Phòng Marketing'),
+        (5,N'Phòng Maintenance');
 
 -- Table2
 CREATE TABLE `Position` (
@@ -24,10 +24,10 @@ CREATE TABLE `Position` (
 );
 
 INSERT INTO `Position`(PositionID,PositionName)
-VALUES  ('1','Dev'),
-		('2','Test'),
-        ('3','Scrum Master'),
-        ('4','PM');
+VALUES  (1,'Dev'),
+		(2,'Test'),
+        (3,'Scrum Master'),
+        (4,'PM');
 
 -- Table3
 CREATE TABLE Account (
@@ -43,11 +43,11 @@ CREATE TABLE Account (
 );
 
 INSERT INTO Account(AccountID,Email,Username,FullName,DepartmentID,PositionID,CreateDate)
-VALUES  ('1','nva@gmail.com','nva123',N'Nguyễn Văn A','1','1','2022-07-19'),
-		('2','ttb@gmail.com','ttb123',N'Trần Thanh B','3','2','2022-07-19'),
-        ('3','nvc@gmail.com','nvc123',N'Ngô Văn C','1','4','2022-07-19'),
-        ('4','dyd@gmail.com','dyd123',N'Đỗ Yến D','5','2','2022-07-19'),
-        ('5','nce@gmail.com','nce123',N'Nguyễn Cao E','1','3','2022-07-19');
+VALUES  (1,'nva@gmail.com','nva123',N'Nguyễn Văn A','1','1','2022-07-19'),
+		(2,'ttb@gmail.com','ttb123',N'Trần Thanh B','3','2','2022-07-19'),
+        (3,'nvc@gmail.com','nvc123',N'Ngô Văn C','1','4','2022-07-19'),
+        (4,'dyd@gmail.com','dyd123',N'Đỗ Yến D','5','2','2022-07-19'),
+        (5,'nce@gmail.com','nce123',N'Nguyễn Cao E','1','3','2022-07-19');
 
 -- Table4
 CREATE TABLE `Group` (
@@ -58,11 +58,11 @@ CREATE TABLE `Group` (
 );
 
 INSERT INTO `Group`(GroupID,GroupName,CreatorID,CreateDate)
-VALUES  ('1',N'Cơ sở Thái Hà','3','022-07-19'),
-		('2',N'Cơ sở Duy Tân','3','2022-07-19'),
-        ('3',N'Cơ sở Lê Văn Lương','3','2022-07-19'),
-        ('4',N'Cơ sở Tây Sơn','3','2022-07-19'),
-        ('5',N'Cơ sở Hoàn Kiếm','3','2022-07-19');
+VALUES  (1,N'Cơ sở Thái Hà','3','022-07-19'),
+		(2,N'Cơ sở Duy Tân','3','2022-07-19'),
+        (3,N'Cơ sở Lê Văn Lương','3','2022-07-19'),
+        (4,N'Cơ sở Tây Sơn','3','2022-07-19'),
+        (5,N'Cơ sở Hoàn Kiếm','3','2022-07-19');
 
 -- Table5
 CREATE TABLE GroupAccount (
@@ -74,11 +74,11 @@ CREATE TABLE GroupAccount (
 );
 
 INSERT INTO GroupAccount(GroupID,AccountID,JoinDate)
-VALUES  ('1','1','2022-01-01'),
-		('1','2','2022-01-01'),
-        ('1','3','2022-01-01'),
-        ('2','4','2022-01-01'),
-        ('2','5','2022-01-01');
+VALUES  (1,1,'2022-01-01'),
+		(1,2,'2022-01-01'),
+        (1,3,'2022-01-01'),
+        (2,4,'2022-01-01'),
+        (2,5,'2022-01-01');
         
 -- Table6
 CREATE TABLE TypeQuestion (
@@ -87,8 +87,8 @@ CREATE TABLE TypeQuestion (
 );
 
 INSERT INTO TypeQuestion(TypeID,TypeName)
-VALUES  ('1','Essay'),
-		('2','Multiple-Choice');
+VALUES  (1,'Essay'),
+		(2,'Multiple-Choice');
 
 -- Table7
 CREATE TABLE CategoryQuestion (
@@ -97,11 +97,11 @@ CREATE TABLE CategoryQuestion (
 );
 
 INSERT INTO CategoryQuestion(CategoryID,CategoryName)
-VALUES  ('1',N'SQL'),
-		('2',N'BackEnd'),
-        ('3',N'FrontEnd'),
-        ('4',N'Api'),
-        ('5',N'AI');
+VALUES  (1,N'SQL'),
+		(2,N'BackEnd'),
+        (3,N'FrontEnd'),
+        (4,N'Api'),
+        (5,N'AI');
         
 -- Table8
 CREATE TABLE Question (
@@ -116,11 +116,11 @@ CREATE TABLE Question (
 );
 
 INSERT INTO Question(QuestionID,Content,CategoryID,TypeID,CreatorID,CreateDate)
-VALUES  ('1',N'Database là gì?','1','1','3','2022-07-19'),
-		('2',N'BackEnd là gì?','2','1','3','2022-07-19'),
-        ('3',N'FrontEnd là gì?','3','1','3','2022-07-19'),
-        ('4',N'API là gì?','4','1','3','2022-07-19'),
-        ('5',N'AI là gì?','5','1','3','2022-07-19');
+VALUES  (1,N'Database là gì?','1','1','3','2022-07-19'),
+		(2,N'BackEnd là gì?','2','1','3','2022-07-19'),
+        (3,N'FrontEnd là gì?','3','1','3','2022-07-19'),
+        (4,N'API là gì?','4','1','3','2022-07-19'),
+        (5,N'AI là gì?','5','1','3','2022-07-19');
 
 -- Table9
 CREATE TABLE Answer (
@@ -131,11 +131,11 @@ CREATE TABLE Answer (
 );
 
 INSERT INTO Answer(AnswerID,Content,QuestionID,isCorrect)
-VALUES  ('1',N'Database là cơ sở dữ liệu, là một bộ sưu tập dữ liệu được tổ chức bày bản và thường được truy cập từ hệ thống máy tính hoặc tồn tại dưới dạng tập tin trong hệ quản trị cơ sở dữ liệu','1','1'),
-		('2',N'BackEnd là tất cả những phần hỗ trợ hoạt động của website hoặc ứng dụng mà người dùng không thể nhìn thấy được','2','1'),
-        ('3',N'FrontEnd là giao diện máy tính','3','0'),
-        ('4',N'API là các phương thức, giao thức kết nối với các thư viện và ứng dụng khác. Nó là viết tắt của Application Programming Interface','4','1'),
-        ('5',N'Trí tuệ nhân tạo hay trí thông minh nhân tạo (Artificial Intelligence – viết tắt là AI) là một ngành thuộc lĩnh vực khoa học máy tính (Computer science)','5','1');
+VALUES  (1,N'Database là cơ sở dữ liệu, là một bộ sưu tập dữ liệu được tổ chức bày bản và thường được truy cập từ hệ thống máy tính hoặc tồn tại dưới dạng tập tin trong hệ quản trị cơ sở dữ liệu','1','1'),
+		(2,N'BackEnd là tất cả những phần hỗ trợ hoạt động của website hoặc ứng dụng mà người dùng không thể nhìn thấy được','2','1'),
+        (3,N'FrontEnd là giao diện máy tính','3','0'),
+        (4,N'API là các phương thức, giao thức kết nối với các thư viện và ứng dụng khác. Nó là viết tắt của Application Programming Interface','4','1'),
+        (5,N'Trí tuệ nhân tạo hay trí thông minh nhân tạo (Artificial Intelligence – viết tắt là AI) là một ngành thuộc lĩnh vực khoa học máy tính (Computer science)','5','1');
 
 -- Table10
 CREATE TABLE Exam (
@@ -150,11 +150,11 @@ CREATE TABLE Exam (
 );
 
 INSERT INTO Exam(ExamID,Code,Title,CategoryID,Duration,CreatorID,CreateDate)
-VALUES  ('1','000001','Test giữa giờ số 1','1',N'10 phút','3','2022-07-19'),
-		('2','000002','Test giữa giờ số 2','2',N'10 phút','3','2022-07-19'),
-        ('3','000003','Test giữa giờ số 3','3',N'10 phút','3','2022-07-19'),
-        ('4','000004','Test giữa giờ số 4','4',N'10 phút','3','2022-07-19'),
-        ('5','000005','Test giữa giờ số 5','5',N'10 phút','3','2022-07-19');
+VALUES  (1,'000001','Test giữa giờ số 1','1',60,'3','2022-07-19'),
+		(2,'000002','Test giữa giờ số 2','2',10,'3','2022-07-19'),
+        (3,'000003','Test giữa giờ số 3','3',120,'3','2022-07-19'),
+        (4,'000004','Test giữa giờ số 4','4',70,'3','2022-07-19'),
+        (5,'000005','Test giữa giờ số 5','5',30,'3','2022-07-19');
 
 -- Table11
 CREATE TABLE ExamQuestion (
@@ -165,8 +165,8 @@ CREATE TABLE ExamQuestion (
 );
 
 INSERT INTO ExamQuestion(ExamID,QuestionID)
-VALUES  ('1','1'),
-		('2','2'),
-        ('3','3'),
-        ('4','4'),
-        ('5','5');
+VALUES  (1,1),
+		(2,2),
+        (3,3),
+        (4,4),
+        (5,5);
