@@ -33,6 +33,6 @@ CREATE TABLE data_types2(
 	id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
     `name` VARCHAR(200),
     birth_date DATE,
-    gender TINYINT CHECK(Gender >= 0 AND Gender <= 1),
+    gender TINYINT CHECK(gender >= 0 AND gender <= 1),
     is_deleted_flag BOOLEAN
 );

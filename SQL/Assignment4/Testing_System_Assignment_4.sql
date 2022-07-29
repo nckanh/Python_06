@@ -9,13 +9,13 @@ SELECT *
 FROM `account` 
 WHERE create_date > '2020-10-20';
 
--- Question3
+-- Question3: Viết lệnh để lấy ra tất cả các developer
 SELECT * 
 FROM `account` a
 JOIN `position` p
 ON a.position_id = p.position_id WHERE p.position_name LIKE '%dev%';
 
--- Question4
+-- Question4: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên
 SELECT d.department_name, count(a.account_id) AS 'Số nhân viên' 
 FROM `account` a
 JOIN department d
@@ -23,7 +23,7 @@ ON a.department_id = d.department_id
 GROUP BY d.department_id
 HAVING count(a.account_id) > 3;
 
--- Question5
+-- Question5: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất
 SELECT q.*
 FROM question q
 JOIN exam_question e ON q.question_id = e.question_id
@@ -36,19 +36,19 @@ FROM exam_question
 GROUP BY question_id) AS Bangsoluongcauhoi)
 ;
 
--- Question6
+-- Question6: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question
 SELECT c.*,COUNT(*) AS so_luong
 FROM category_question c
 JOIN question q ON c.category_id = q.category_id
 GROUP BY category_id;
 
--- Question7
+-- Question7: Thông kê mỗi Question được sử dụng trong bao nhiêu Exam
 SELECT q.*,count(*) AS so_luong
 FROM question q
 JOIN exam_question e ON q.question_id = e.question_id
 GROUP BY q.question_id;
 
--- Question8
+-- Question8: Lấy ra Question có nhiều câu trả lời nhất
 SELECT q.question_id,q.content 
 FROM question q
 JOIN answer a ON q.question_id = a.question_id
@@ -60,13 +60,13 @@ FROM
 FROM answer
 GROUP BY question_id) AS answer_quantity_tbl);
 
--- Question9
+-- Question9: Thống kê số lượng account trong mỗi group
 SELECT g.*,COUNT(*) AS account_quantity
 FROM `group` g
 JOIN group_account ga ON g.group_id = ga.group_id
 GROUP BY g.group_id;
 
--- Question10
+-- Question10: Tìm chức vụ có ít người nhất
 SELECT p.*
 FROM position p
 JOIN `account` a ON p.position_id = a.position_id
@@ -78,16 +78,16 @@ FROM
 FROM `account`
 GROUP BY position_id) AS account_quantity_tbl);
 
--- Question11
-SELECT g.group_id,p.position_name,count(a.account_id) AS account_quantity
-FROM `group` g 
-LEFT JOIN group_account ga ON g.group_id = ga.group_id
-LEFT JOIN `account` a ON a.account_id = ga.account_id
-LEFT JOIN `position` p ON p.position_id = a.position_id
-GROUP BY g.group_id,p.position_id
-ORDER BY g.group_id;
+-- Question11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM
 
--- Question12
+SELECT d.department_name,p.position_name,count(a.account_id) 
+FROM `account` a
+JOIN department d ON a.department_id = d.department_id
+JOIN position p ON a.position_id = p.position_id
+GROUP BY a.department_id,a.position_id
+ORDER BY a.department_id;
+
+-- Question12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, 
 SELECT q.question_id,q.content,t.type_name,c.category_name,a.full_name,an.content
 FROM question q
 LEFT JOIN type_question t ON q.type_id = t.type_id
@@ -96,27 +96,27 @@ LEFT JOIN `account` a ON q.creator_id = a.account_id
 LEFT JOIN answer an ON q.question_id = an.question_id
 ORDER BY q.question_id;
 
--- Question13
+-- Question13:  Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm
 SELECT t.*,COUNT(*) AS question_quantity
 FROM type_question t
 JOIN question q ON t.type_id = q.type_id
 GROUP BY q.type_id;
 
--- Question14
+-- Question14: Lấy ra group không có account nào
 SELECT g.*,COUNT(ga.group_id) AS account_quantity
 FROM `group` g
 LEFT JOIN group_account ga ON g.group_id = ga.group_id
 GROUP BY g.group_id
 HAVING account_quantity = 0;
 
--- Question15
+-- Question15: Lấy ra group không có account nào
 SELECT g.*,count(ga.group_id) AS account_quantity
 FROM `group` g
 LEFT JOIN group_account ga ON g.group_id = ga.group_id
 GROUP BY g.group_id
 HAVING account_quantity = 0;
 
--- Question16
+-- Question16: Lấy ra question không có answer nào
 SELECT q.*,COUNT(a.question_id) AS answer_quantity
 FROM question q
 LEFT JOIN answer a ON q.question_id = a.question_id
