@@ -57,28 +57,28 @@ VALUES								(1,					'JAVA',		'2020-01-01'),
 									(9,					'PYTHON',	'2020-01-01'),
 									(10,				'JAVA',		'2020-01-01');
                                     
--- Question3
+-- Question3: Viết lệnh để lấy ra danh sách nhân viên (name) có skill Java
 SELECT e.employee_name,es.skill_code
 FROM employee_table e
 JOIN employee_skill_table es ON e.employee_number = es.employee_number
 WHERE es.skill_code = 'JAVA';
 
--- Question4
+-- Question4: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên
 SELECT d.department_name,count(e.employee_number) AS employee_quantity
 FROM department d
-LEFT JOIN employee_table e ON d.department_number = e.department_number
+JOIN employee_table e ON d.department_number = e.department_number
 GROUP BY d.department_number
 HAVING count(e.employee_number) > 3;
 
--- Question5
-SELECT d.department_name,e.employee_name
+-- Question5: Viết lệnh để lấy ra danh sách nhân viên của mỗi văn phòng ban.
+SELECT d.department_name,COUNT(et.employee_number), GROUP_CONCAT(et.employee_name)
 FROM department d 
-LEFT JOIN employee_table e ON d.department_number = e.department_number
-ORDER BY d.department_number;
+LEFT JOIN employee_table et ON d.department_number = et.department_number
+GROUP BY d.department_number;
 
--- Question6
+-- Question6: Viết lệnh để lấy ra danh sách nhân viên có > 1 skills. Hướng dẫn: sử dụng DISTINCT
 SELECT e.employee_name,count(es.skill_code) AS skill_quantity
 FROM employee_table e
-LEFT JOIN employee_skill_table es ON e.employee_number = es.employee_number
+JOIN employee_skill_table es ON e.employee_number = es.employee_number
 GROUP BY e.employee_number
 HAVING count(es.skill_code) > 1   
