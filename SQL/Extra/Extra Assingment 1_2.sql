@@ -1,37 +1,38 @@
 -- Exercise1
-CREATE DATABASE Fresher;
 
-USE Fresher;
+CREATE DATABASE fresher;
 
-DROP TABLE IF EXISTS Trainee;
+USE fresher;
 
-CREATE TABLE IF NOT EXISTS Trainee(
-	TraineeID INT PRIMARY KEY AUTO_INCREMENT,
-    Full_Name NVARCHAR(100),
-    Birth_Date DATE,
-    Gender ENUM('male','female','unknown'),
-    ET_IQ TINYINT CHECK(ET_IQ <= 20 AND ET_IQ >= 0),
-    ET_Gmath TINYINT CHECK(ET_Gmath <= 20 AND ET_Gmath >= 0),
-    ET_English TINYINT CHECK(ET_English <= 50 AND ET_English >= 0),
-    Training_Class INT,
-    Evaluation_Notes TEXT
+DROP TABLE IF EXISTS trainee;
+
+CREATE TABLE IF NOT EXISTS trainee(
+	trainee_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name NVARCHAR(100),
+    birth_date DATE,
+    gender ENUM('male','female','unknown'),
+    et_iq TINYINT CHECK(et_iq <= 20 AND ET_IQ >= 0),
+    et_gmath TINYINT CHECK(et_gmath <= 20 AND et_gmath >= 0),
+	et_english TINYINT CHECK(et_english <= 50 AND et_english >= 0),
+    training_class INT,
+    evaluation_notes TEXT
 );
 
-ALTER TABLE Trainee ADD COLUMN VTI_Account NVARCHAR(200) NOT NULL UNIQUE;
+ALTER TABLE trainee ADD COLUMN vti_account NVARCHAR(200) NOT NULL UNIQUE;
 
 -- Exercise2
-CREATE TABLE DataTypes1(
-	ID MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(200),
-    Code CHAR(5),
-    ModifiedDate DATETIME
+CREATE TABLE data_types1(
+	id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(200),
+    `code` CHAR(5),
+    modified_date DATETIME
 );
 
 -- Exercise3
-CREATE TABLE DataTypes2(
-	ID MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(200),
-    BirthDate DATE,
-    Gender TINYINT CHECK(Gender >= 0 AND Gender <= 1),
-    IsDeletedFlag BOOLEAN
+CREATE TABLE data_types2(
+	id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(200),
+    birth_date DATE,
+    gender TINYINT CHECK(Gender >= 0 AND Gender <= 1),
+    is_deleted_flag BOOLEAN
 );

@@ -1,88 +1,88 @@
-CREATE DATABASE Testing_System_Assignment_1;
+CREATE DATABASE testing_system_assignment_1;
 
-USE Testing_System_Assignment_1;
+USE testing_system_assignment_1;
 
 -- Table1
-CREATE TABLE Department(
-	DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
-    DepartmentName VARCHAR(50)
+CREATE TABLE department(
+	department_id INT PRIMARY KEY AUTO_INCREMENT,
+    department_name VARCHAR(50)
 );
 
 -- Table2
-CREATE TABLE Position (
-	PositionID INT PRIMARY KEY AUTO_INCREMENT,
-    PositionName ENUM('Dev','Test','Scrum Master','PM')
+CREATE TABLE position (
+	position_id INT PRIMARY KEY AUTO_INCREMENT,
+    position_name ENUM('Dev','Test','Scrum Master','PM')
 );
 
 -- Table3
-CREATE TABLE Account (
-	AccountID INT PRIMARY KEY AUTO_INCREMENT,
-    Email VARCHAR(50),
-    Username VARCHAR(50),
-    FullName VARCHAR(50),
-    DepartmentID INT,
-    PositionID INT,
-    CreateDate DATE
+CREATE TABLE `account` (
+	account_id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50),
+    user_name VARCHAR(50),
+    full_name VARCHAR(50),
+    department_id INT,
+    position_id INT,
+    create_date DATE
 );
 
 -- Table4
-CREATE TABLE `Group` (
-	GroupID INT PRIMARY KEY AUTO_INCREMENT,
-    GroupName varchar(50),
-    CreatorID INT,
-    CreateDate DATE
+CREATE TABLE `group` (
+	group_id INT PRIMARY KEY AUTO_INCREMENT,
+    group_name varchar(50),
+    creator_id INT,
+    create_date DATE
 );
 
 -- Table5
-CREATE TABLE GroupAccount (
-	GroupID INT,
-    AccountID INT,
-    JoinDate DATE
+CREATE TABLE group_account (
+	group_id INT,
+    account_id INT,
+    join_date DATE
 );
 
 -- Table6
-CREATE TABLE TypeQuestion (
-	TypeID INT PRIMARY KEY AUTO_INCREMENT,
-    TypeName ENUM('Essay','Multiple-Choice')
+CREATE TABLE type_question (
+	type_id INT PRIMARY KEY AUTO_INCREMENT,
+    type_name ENUM('Essay','Multiple-Choice')
 );
 
 -- Table7
-CREATE TABLE CategoryQuestion (
-	CategoryID INT PRIMARY KEY AUTO_INCREMENT,
-    CategoryName VARCHAR(50)
+CREATE TABLE category_question (
+	category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(50)
 );
 
 -- Table8
-CREATE TABLE Question (
-	QuestionID INT PRIMARY KEY AUTO_INCREMENT,
-    Content VARCHAR(50),
-    CategoryID INT,
-    TypeID INT,
-    CreatorID INT,
-    CreateDate DATE
+CREATE TABLE question (
+	question_id INT PRIMARY KEY AUTO_INCREMENT,
+    content VARCHAR(50),
+    category_id INT,
+    type_id INT,
+    creator_id INT,
+    create_date DATE
 );
 
 -- Table9
-CREATE TABLE Answer (
-	AnswerID INT PRIMARY KEY AUTO_INCREMENT,
-    Content VARCHAR(50),
-    QuestionID INT,
-    isCorrect BOOLEAN
+CREATE TABLE answer (
+	answer_id INT PRIMARY KEY AUTO_INCREMENT,
+    content VARCHAR(50),
+    question_id INT,
+    is_correct BOOLEAN
 );
 
 -- Table10
-CREATE TABLE Exam (
-	ExamID INT PRIMARY KEY AUTO_INCREMENT,
-    Code INT,
-    Title VARCHAR(50),
-    CategoryID INT,
-    Duration DATETIME,
-    CreatorID INT,
-    CreateDate DATE
+CREATE TABLE exam (
+	exam_id INT PRIMARY KEY AUTO_INCREMENT,
+    `code` INT,
+    title VARCHAR(50),
+    category_id INT,
+    duration DATETIME,
+    creator_id INT,
+    create_date DATE
 );
 
 -- Table11
-CREATE TABLE ExamQuestion (
-	ExamID INT,
-    QuestionID INT
+CREATE TABLE exam_question (
+	exam_id INT,
+    question_id INT
 );

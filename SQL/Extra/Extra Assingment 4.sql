@@ -1,5 +1,5 @@
 -- Question1
-employee_skill_tabledepartmentemployee_tableUSE fresher;
+USE fresher;
 
 CREATE TABLE department (
 	department_number SMALLINT PRIMARY KEY AUTO_INCREMENT,

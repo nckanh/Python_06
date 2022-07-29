@@ -12,17 +12,26 @@ insert into trainee values
 (10,N'Vũ Minh Thư','2004-11-19','female',15,8,28,1,'','vmt@vti');
 
 -- Question2 
-SELECT date_format(Birth_Date,'%m') as 'Tháng sinh',COUNT(*) as 'Số TTS' FROM Trainee
-GROUP BY date_format(Birth_Date,'%m');
+SELECT date_format(birth_date,'%m') AS 'Tháng sinh',COUNT(*) AS 'Số TTS' 
+FROM Trainee
+GROUP BY date_format(birth_date,'%m');
+
 -- Question3
-SELECT * FROM Trainee WHERE CHAR_LENGTH(Full_Name) = (SELECT MAX(CHAR_LENGTH(Full_Name))  FROM Trainee);
+SELECT * 
+FROM trainee 
+WHERE CHAR_LENGTH(full_name) = (SELECT MAX(CHAR_LENGTH(full_name))  FROM trainee);
+
 -- Question4
-SELECT * FROM Trainee WHERE 
+SELECT * 
+FROM trainee 
+WHERE 
 ET_IQ >= 8 AND
 ET_Gmath >= 8 AND
 ET_English >= 18 AND
 ET_IQ + ET_Gmath >= 20;
+
 -- Question5
-DELETE FROM Trainee WHERE TraineeID = 3;
+DELETE FROM trainee WHERE trainee_id = 3;
+
 -- Question6
-UPDATE Trainee set Training_Class = (select Training_Class WHERE TraineeID = 4) WHERE TraineeID = 5;
+UPDATE trainee SET Training_Class = (select Training_Class WHERE TraineeID = 4) WHERE TraineeID = 5;
